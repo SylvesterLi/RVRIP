@@ -1,8 +1,0 @@
-C:\Users\SANG-HP\source\repos\CalculateDate423\bin\Debug\CalculateDate423.exe
-C:\Users\SANG-HP\source\repos\CalculateDate423\bin\Debug\CalculateDate423.pdb
-C:\Users\SANG-HP\source\repos\CalculateDate423\obj\Debug\CalculateDate423.csprojAssemblyReference.cache
-C:\Users\SANG-HP\source\repos\CalculateDate423\obj\Debug\CalculateDate423.Form1.resources
-C:\Users\SANG-HP\source\repos\CalculateDate423\obj\Debug\CalculateDate423.Properties.Resources.resources
-C:\Users\SANG-HP\source\repos\CalculateDate423\obj\Debug\CalculateDate423.csproj.GenerateResource.cache
-C:\Users\SANG-HP\source\repos\CalculateDate423\obj\Debug\CalculateDate423.exe
-C:\Users\SANG-HP\source\repos\CalculateDate423\obj\Debug\CalculateDate423.pdb

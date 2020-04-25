@@ -1,8 +1,0 @@
-C:\Users\SANG-HP\source\repos\CalculateDate423\bin\Debug\WindowsApplication.exe
-C:\Users\SANG-HP\source\repos\CalculateDate423\bin\Debug\WindowsApplication.pdb
-C:\Users\SANG-HP\source\repos\CalculateDate423\obj\x86\Debug\RailwayVehicleRapairIntervalCompute.csprojAssemblyReference.cache
-C:\Users\SANG-HP\source\repos\CalculateDate423\obj\x86\Debug\CalculateDate423.Form1.resources
-C:\Users\SANG-HP\source\repos\CalculateDate423\obj\x86\Debug\RailwayVehicleRapairIntervalCompute.Properties.Resources.resources
-C:\Users\SANG-HP\source\repos\CalculateDate423\obj\x86\Debug\RailwayVehicleRapairIntervalCompute.csproj.GenerateResource.cache
-C:\Users\SANG-HP\source\repos\CalculateDate423\obj\x86\Debug\WindowsApplication.exe
-C:\Users\SANG-HP\source\repos\CalculateDate423\obj\x86\Debug\WindowsApplication.pdb
