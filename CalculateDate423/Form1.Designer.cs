@@ -264,9 +264,9 @@
             this.label10.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.label10.Location = new System.Drawing.Point(12, 599);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(20, 20);
+            this.label10.Size = new System.Drawing.Size(104, 20);
             this.label10.TabIndex = 18;
-            this.label10.Text = "|";
+            this.label10.Text = "|前次厂修";
             // 
             // label11
             // 
@@ -275,9 +275,9 @@
             this.label11.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.label11.Location = new System.Drawing.Point(207, 599);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(20, 20);
+            this.label11.Size = new System.Drawing.Size(104, 20);
             this.label11.TabIndex = 19;
-            this.label11.Text = "|";
+            this.label11.Text = "|一次段修";
             // 
             // label12
             // 
@@ -286,9 +286,9 @@
             this.label12.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.label12.Location = new System.Drawing.Point(404, 599);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(20, 20);
+            this.label12.Size = new System.Drawing.Size(104, 20);
             this.label12.TabIndex = 20;
-            this.label12.Text = "|";
+            this.label12.Text = "|二次段修";
             // 
             // label13
             // 
@@ -297,9 +297,9 @@
             this.label13.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.label13.Location = new System.Drawing.Point(603, 599);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(20, 20);
+            this.label13.Size = new System.Drawing.Size(104, 20);
             this.label13.TabIndex = 21;
-            this.label13.Text = "|";
+            this.label13.Text = "|三次段修";
             // 
             // label14
             // 

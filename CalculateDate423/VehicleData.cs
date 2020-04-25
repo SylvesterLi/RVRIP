@@ -26,9 +26,10 @@ namespace CalculateDate423
         //public DateTime currentFacDate { get; set; }//本次厂修 //需要吗？
         public DateTime nextDepDate { get; set; }
         public DateTime nextFacDate { get; set; }
+        //public DateTime produceDate { get; set; }
 
 
-        public VehicleData DateProcessKernel(int GenTp, DateTime pre_depDate, DateTime pre_facDate, DateTime produceDate,int SealSpan)
+        public VehicleData DateProcessKernel(int GenTp, DateTime pre_depDate, DateTime pre_facDate, DateTime produceDate, int SealSpan)
         {
 
             VehicleData vehicle = new VehicleData();
@@ -42,34 +43,31 @@ namespace CalculateDate423
             int Gate_sum = Gate_year * 12 + Gate_month;
 
 
-            //70t通用 特殊情况在其中做判断
+            //70t通用.
             if (GenTp == 0)
             {
 
                 //现在是第几次段修
                 //70t是两年一次段修所以都是整数，只需要用年来除
                 int dep_count = Gate_year / 2;
-                //处在第三次段修
+
+                //此时开始判断是否需要加强段修。开始分类,判断特殊情况。
                 int predictFacDate = pre_facDate.Year + 8;
-
-
-                //此时开始判断是否需要加强段修
-                if (dep_count == 3)
+                if (predictFacDate == 2020 || predictFacDate == 2021)
                 {
-                    if (predictFacDate == 2020 || predictFacDate == 2021)
-                    {
-                        //GenTp = 2;//70t的特殊情况，需要加强段修.但后面不再需要GenTp此参数，由描述车型更精确的vehicle.GenType替代
-                        vehicle.GenType = vehicleGenType.Spc70t;
+                    //GenTp = 2;//70t的特殊情况，需要加强段修.但后面不再需要GenTp此参数，由描述车型更精确的vehicle.GenType替代
+                    vehicle.GenType = vehicleGenType.Spc70t;
 
-                    }
-                    else
-                    {
-                        vehicle.GenType = vehicleGenType.Gen70t;
-                    }
                 }
+                else
+                {
+                    vehicle.GenType = vehicleGenType.Gen70t;
+                }
+
 
                 //段修修程为24个月 n为第几次段修
                 int n = (int)Math.Round((double)(Gate_sum / 24), 0);//四舍五入为了减少误差
+                vehicle.previousDepotDate = vehicle.previousFactoryDate.AddMonths(n * 24);
 
                 switch (vehicle.GenType)
                 {
@@ -78,20 +76,20 @@ namespace CalculateDate423
                         //计算增加修程
                         //将前n次的24个月+剩下的6-n次的20个月加入到上次厂修 即可求出下次厂修时间
                         vehicle.nextFacDate = vehicle.previousFactoryDate.AddMonths((6 - n) * 27 + n * 24);
-                        //修正上次段修时间
-                        vehicle.previousDepotDate = vehicle.previousFactoryDate.AddMonths(n * 24);
-                        
-                        
-                        
-                        
-                        //ToDo: 加入封存备用期
-                        //判断previousDepotDate.AddMonths("封存期")是否在2020年后
-                        //是，则上个阶段需要再加3个月
 
-
-
-
-
+                        //拿修正后的段修时间+封存期，判断第n次段修是否在2020-2.ye021修程修制改革时间内
+                        DateTime sealEndTime = vehicle.previousDepotDate.AddMonths(SealSpan);
+                        if (sealEndTime.Year == 2020 || sealEndTime.Year == 2021)
+                        {
+                            //在2020-2011期间，则先加两年再加3个月，得到下一次厂修日期
+                            vehicle.nextDepDate = sealEndTime.AddMonths(24).AddMonths(3);
+                            vehicle.nextFacDate = vehicle.previousFactoryDate.AddMonths((4 - n) * 27 + n * 24).AddMonths(3);
+                        }
+                        else
+                        {
+                            //如果不在2020-2011，则按照正常算
+                            vehicle.nextFacDate = vehicle.previousFactoryDate.AddMonths((4 - n) * 27 + n * 24);
+                        }
 
 
                         break;
@@ -99,18 +97,27 @@ namespace CalculateDate423
 
                     case vehicleGenType.Spc70t:
 
-                        
-                        //计算增加修程
-                        //将前n次的18个月+剩下的6-n次的20个月加入到上次厂修 即可求出下次厂修时间
-                        vehicle.nextFacDate = vehicle.previousFactoryDate.AddMonths((6 - n) * 27 + n * 24);
-                        //修正上次段修时间
-                        vehicle.previousDepotDate = vehicle.previousFactoryDate.AddMonths(n * 24);
-                        //ToDo: 加入封存备用期
+
+                        //首先判断n是否为3，保险起见
+                        if (n != 3)
+                        {
+                            //第一次做加强段修，不增加修程
+                            //本次为加强段修，下次做厂修
+                            vehicle.nextFacDate = produceDate.AddMonths(24 * 5);
+
+                            //求加强段修时间？
+
+
+                        }
+                        else
+                        {
+                            vehicle = null;
+                        }
 
                         break;
 
                     default:
-
+                        vehicle = null;
                         break;
 
                 }
@@ -148,8 +155,8 @@ namespace CalculateDate423
             {
                 //其他车都是60t的车都是水泥罐之类的，1.5年修一次，5个段修，9年做一次厂修
 
-
-
+                //其他车暂时不写
+                vehicle = null;
             }
 
             return vehicle;
