@@ -330,6 +330,8 @@
             this.textBox_SealSpan.Name = "textBox_SealSpan";
             this.textBox_SealSpan.Size = new System.Drawing.Size(249, 32);
             this.textBox_SealSpan.TabIndex = 25;
+            this.textBox_SealSpan.Text = "0";
+            this.textBox_SealSpan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_SealSpan_KeyPress);
             // 
             // label16
             // 

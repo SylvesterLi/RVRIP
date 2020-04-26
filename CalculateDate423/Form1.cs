@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RailwayVehicleRapairIntervalCompute;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -41,28 +42,38 @@ namespace CalculateDate423
 
         }
 
-        /// <summary>
-        /// 初始ListBox
-        /// </summary>
-        public void initClass1()
-        {
 
-        }
 
         private void button1_Generate_Click(object sender, EventArgs e)
         {
+            if(textBox_SealSpan.Text=="")
+            {
+                textBox_SealSpan.Text = "0";
+            }
+
             //VehicleData实例化需要4个参数，70还是60吨车型、上次厂修时间、上次段修时间、封存时间
-            VehicleData vehicleData = new VehicleData();
-            VehicleData vResult= vehicleData.DateProcessKernel(listBox1.SelectedIndex, dateTimePicker1_Dep.Value.Date, dateTimePicker2_Fac.Value.Date, dateTimePicker1_Produce.Value
-                .Date,0);
-            
-            
+            RailwayVehicleModel vehicleModel = new RailwayVehicleModel();
+
+            //配置vehicleModel参数
+            //强制转换，别搞那么复杂
+            vehicleModel.GenTpSelection = listBox1.SelectedIndex;
+            vehicleModel.produceDate = dateTimePicker1_Produce.Value.Date;
+            vehicleModel.previousDepotDate = dateTimePicker1_Dep.Value.Date;
+            vehicleModel.previousFactoryDate = dateTimePicker2_Fac.Value.Date;
+            vehicleModel.SealDuration = Convert.ToInt32(textBox_SealSpan.Text);
+
+            //需要设置int GenTp, DateTime pre_depDate, DateTime pre_facDate, DateTime produceDate, int SealSpan
+            RailwayVehicleModel vResult = VehicleData.DateProcessKernel(vehicleModel);
+            //, , , ,0
+
+
+
 
 
             Dbg("Log:" + DateTime.Now.ToString() + "\r\n" + vResult.previousDepotDate.ToString());
         }
 
-       
+
 
         /// <summary>
         /// DebugInfo打印封装,自动换行
@@ -73,6 +84,14 @@ namespace CalculateDate423
             string tmp = textBox1_DBG.Text;
             textBox1_DBG.Text = str + "\r\n" + tmp;
         }
+
+        private void textBox_SealSpan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
-   
+
 }
