@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using static RailwayVehicleRapairIntervalCompute.RailwayVehicleModel;
 
 namespace CalculateDate423
 {
@@ -28,6 +29,7 @@ namespace CalculateDate423
                 listBox1.Items.Add(item.ToString());
             }
             listBox1.SelectedIndex = 0;
+            ProgressBarScaleDisplay(vehicleGenType.Gen70t, 0);
         }
         /// <summary>
         /// 两边联动
@@ -43,18 +45,18 @@ namespace CalculateDate423
         }
 
 
-
         private void button1_Generate_Click(object sender, EventArgs e)
         {
-            if(textBox_SealSpan.Text=="")
+            if (textBox_SealSpan.Text == "")
             {
                 textBox_SealSpan.Text = "0";
             }
 
-            //VehicleData实例化需要4个参数，70还是60吨车型、上次厂修时间、上次段修时间、封存时间
+            //RailwayVehicleModel实例化需要配置5个参数
+            //70还是60吨车型、生产日期、上次厂修时间、上次段修时间、封存时间
             RailwayVehicleModel vehicleModel = new RailwayVehicleModel();
 
-            //配置vehicleModel参数
+            //配置vehicleModel参数 5项
             //强制转换，别搞那么复杂
             vehicleModel.GenTpSelection = listBox1.SelectedIndex;
             vehicleModel.produceDate = dateTimePicker1_Produce.Value.Date;
@@ -64,13 +66,16 @@ namespace CalculateDate423
 
             //需要设置int GenTp, DateTime pre_depDate, DateTime pre_facDate, DateTime produceDate, int SealSpan
             RailwayVehicleModel vResult = VehicleData.DateProcessKernel(vehicleModel);
-            //, , , ,0
+            
+            textBox_NextDep.Text = vResult.nextDepotDate.Date.ToString();
+            textBox_NextFac.Text = vResult.nextFactoryDate.Date.ToString();
+            label9.Text = "修程进度：" + vResult.n.ToString();
+            //进度条显示
+            ProgressBarScaleDisplay(vResult.GenType, vResult.n);
 
 
-
-
-
-            Dbg("Log:" + DateTime.Now.ToString() + "\r\n" + vResult.previousDepotDate.ToString());
+            textBox1_DBG.Text = vResult.warningInfo;
+            //Dbg("Log:" + DateTime.Now.ToString() + "\r\n" + vResult.nextFactoryDate.ToString());
         }
 
 
@@ -83,8 +88,14 @@ namespace CalculateDate423
         {
             string tmp = textBox1_DBG.Text;
             textBox1_DBG.Text = str + "\r\n" + tmp;
+           
         }
 
+        /// <summary>
+        /// 防止输入非数字
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox_SealSpan_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar))
@@ -92,6 +103,52 @@ namespace CalculateDate423
                 e.Handled = true;
             }
         }
+
+        public void ProgressBarScaleDisplay(RailwayVehicleModel.vehicleGenType genType, int n)
+        {
+
+
+            List<Label> labGroup0 = new List<Label> { label27, label18, label19, label20 };
+            List<Label> labGroup1 = new List<Label> { label11, label12, label13, label15, label21, label26 };
+            List<Label> labGroup2 = new List<Label> { label22, label23, label24, label25, label28 };
+            List<List<Label>> labLists = new List<List<Label>> { labGroup0, labGroup1, labGroup2 };
+
+            Action<Label> actionFalse = delegate (Label i) { i.Visible = false; };
+            Action<Label> actionTrue = delegate (Label j) { j.Visible = true; };
+
+            switch (genType)
+            {
+
+                case vehicleGenType.Gen70t://通用C70
+                    progressBar1.Value = n * (120 / 4);//vResult.n * 25;
+                    labGroup0.ForEach(actionTrue);
+                    labGroup1.ForEach(actionFalse);
+                    labGroup2.ForEach(actionFalse);
+
+                    break;
+                case vehicleGenType.Gen60t:
+                    progressBar1.Value = n * (120 / 6);
+                    labGroup0.ForEach(actionFalse);
+                    labGroup1.ForEach(actionTrue);
+                    labGroup2.ForEach(actionFalse);
+                    break;
+                case vehicleGenType.Spc70t://n肯定为3
+                    progressBar1.Value = n * (120 / 5);
+                    labGroup0.ForEach(actionFalse);
+                    labGroup1.ForEach(actionFalse);
+                    labGroup2.ForEach(actionTrue);
+                    break;
+
+                default:
+                    progressBar1.Value = 0;
+                    break;
+
+            }
+
+
+        }
+
+
     }
 
 }

@@ -85,7 +85,9 @@ namespace RailwayVehicleRapairIntervalCompute
         /// 段修进度 n表示处在（本次厂修期内的）第几个段修
         /// </summary>
         public int n { get; set; }
-
+        /// <summary>
+        /// 初次验证、分类
+        /// </summary>
         public int GenTpSelection { get; set; }
 
     }
