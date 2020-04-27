@@ -32,9 +32,7 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1_Dep = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2_Fac = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button1_Generate = new System.Windows.Forms.Button();
             this.textBox1_DBG = new System.Windows.Forms.TextBox();
@@ -67,6 +65,12 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox1_CurrentTime = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1_Dep = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // listBox1
@@ -91,6 +95,7 @@
             this.listBox2.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.listBox2.Size = new System.Drawing.Size(151, 454);
             this.listBox2.TabIndex = 1;
+            this.listBox2.TabStop = false;
             // 
             // label1
             // 
@@ -112,50 +117,24 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "车辆类型选择：";
             // 
-            // dateTimePicker1_Dep
-            // 
-            this.dateTimePicker1_Dep.AllowDrop = true;
-            this.dateTimePicker1_Dep.CalendarFont = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dateTimePicker1_Dep.CustomFormat = "";
-            this.dateTimePicker1_Dep.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dateTimePicker1_Dep.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1_Dep.Location = new System.Drawing.Point(489, 74);
-            this.dateTimePicker1_Dep.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
-            this.dateTimePicker1_Dep.MinDate = new System.DateTime(1991, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1_Dep.Name = "dateTimePicker1_Dep";
-            this.dateTimePicker1_Dep.Size = new System.Drawing.Size(249, 34);
-            this.dateTimePicker1_Dep.TabIndex = 4;
-            this.dateTimePicker1_Dep.Value = new System.DateTime(2018, 4, 1, 0, 0, 0, 0);
-            // 
             // dateTimePicker2_Fac
             // 
             this.dateTimePicker2_Fac.CalendarFont = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dateTimePicker2_Fac.CustomFormat = "";
             this.dateTimePicker2_Fac.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dateTimePicker2_Fac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2_Fac.Location = new System.Drawing.Point(489, 160);
+            this.dateTimePicker2_Fac.Location = new System.Drawing.Point(207, 342);
             this.dateTimePicker2_Fac.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker2_Fac.MinDate = new System.DateTime(1991, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker2_Fac.Name = "dateTimePicker2_Fac";
             this.dateTimePicker2_Fac.Size = new System.Drawing.Size(249, 34);
-            this.dateTimePicker2_Fac.TabIndex = 4;
+            this.dateTimePicker2_Fac.TabIndex = 2;
             this.dateTimePicker2_Fac.Value = new System.DateTime(2012, 4, 1, 0, 0, 0, 0);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(485, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "前次段修时间：";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(485, 127);
+            this.label4.Location = new System.Drawing.Point(203, 309);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(156, 20);
             this.label4.TabIndex = 7;
@@ -163,7 +142,7 @@
             // 
             // button1_Generate
             // 
-            this.button1_Generate.Location = new System.Drawing.Point(887, 395);
+            this.button1_Generate.Location = new System.Drawing.Point(897, 298);
             this.button1_Generate.Name = "button1_Generate";
             this.button1_Generate.Size = new System.Drawing.Size(136, 56);
             this.button1_Generate.TabIndex = 8;
@@ -173,27 +152,27 @@
             // 
             // textBox1_DBG
             // 
-            this.textBox1_DBG.Location = new System.Drawing.Point(489, 250);
+            this.textBox1_DBG.Location = new System.Drawing.Point(487, 71);
             this.textBox1_DBG.Multiline = true;
             this.textBox1_DBG.Name = "textBox1_DBG";
             this.textBox1_DBG.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1_DBG.Size = new System.Drawing.Size(534, 114);
+            this.textBox1_DBG.Size = new System.Drawing.Size(534, 124);
             this.textBox1_DBG.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(485, 227);
+            this.label5.Location = new System.Drawing.Point(483, 35);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 20);
+            this.label5.Size = new System.Drawing.Size(114, 20);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Info:";
+            this.label5.Text = "提示信息：";
             // 
             // textBox_NextDep
             // 
             this.textBox_NextDep.Font = new System.Drawing.Font("宋体", 14F);
-            this.textBox_NextDep.Location = new System.Drawing.Point(774, 74);
+            this.textBox_NextDep.Location = new System.Drawing.Point(772, 420);
             this.textBox_NextDep.Name = "textBox_NextDep";
             this.textBox_NextDep.Size = new System.Drawing.Size(249, 34);
             this.textBox_NextDep.TabIndex = 11;
@@ -202,7 +181,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(770, 35);
+            this.label6.Location = new System.Drawing.Point(768, 387);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(156, 20);
             this.label6.TabIndex = 12;
@@ -212,7 +191,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(770, 127);
+            this.label7.Location = new System.Drawing.Point(483, 387);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(156, 20);
             this.label7.TabIndex = 13;
@@ -221,7 +200,7 @@
             // textBox_NextFac
             // 
             this.textBox_NextFac.Font = new System.Drawing.Font("宋体", 14F);
-            this.textBox_NextFac.Location = new System.Drawing.Point(774, 160);
+            this.textBox_NextFac.Location = new System.Drawing.Point(487, 420);
             this.textBox_NextFac.Name = "textBox_NextFac";
             this.textBox_NextFac.Size = new System.Drawing.Size(249, 34);
             this.textBox_NextFac.TabIndex = 14;
@@ -230,7 +209,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(203, 227);
+            this.label8.Location = new System.Drawing.Point(203, 217);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 20);
             this.label8.TabIndex = 16;
@@ -241,13 +220,12 @@
             this.dateTimePicker1_Produce.CalendarFont = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dateTimePicker1_Produce.CustomFormat = "";
             this.dateTimePicker1_Produce.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dateTimePicker1_Produce.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1_Produce.Location = new System.Drawing.Point(207, 250);
             this.dateTimePicker1_Produce.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker1_Produce.MinDate = new System.DateTime(1991, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker1_Produce.Name = "dateTimePicker1_Produce";
             this.dateTimePicker1_Produce.Size = new System.Drawing.Size(249, 34);
-            this.dateTimePicker1_Produce.TabIndex = 15;
+            this.dateTimePicker1_Produce.TabIndex = 1;
             this.dateTimePicker1_Produce.Value = new System.DateTime(2012, 4, 1, 0, 0, 0, 0);
             // 
             // progressBar1
@@ -339,10 +317,10 @@
             // textBox_SealSpan
             // 
             this.textBox_SealSpan.Font = new System.Drawing.Font("宋体", 13F);
-            this.textBox_SealSpan.Location = new System.Drawing.Point(207, 332);
+            this.textBox_SealSpan.Location = new System.Drawing.Point(488, 252);
             this.textBox_SealSpan.Name = "textBox_SealSpan";
             this.textBox_SealSpan.Size = new System.Drawing.Size(249, 32);
-            this.textBox_SealSpan.TabIndex = 25;
+            this.textBox_SealSpan.TabIndex = 4;
             this.textBox_SealSpan.Text = "0";
             this.textBox_SealSpan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_SealSpan_KeyPress);
             // 
@@ -350,7 +328,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label16.Location = new System.Drawing.Point(203, 299);
+            this.label16.Location = new System.Drawing.Point(484, 384);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(0, 20);
             this.label16.TabIndex = 24;
@@ -359,11 +337,11 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.Location = new System.Drawing.Point(203, 309);
+            this.label17.Location = new System.Drawing.Point(490, 219);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(114, 20);
+            this.label17.Size = new System.Drawing.Size(198, 20);
             this.label17.TabIndex = 26;
-            this.label17.Text = "封存备用期";
+            this.label17.Text = "封存备用期（可选）";
             // 
             // label18
             // 
@@ -487,11 +465,72 @@
             this.label28.TabIndex = 37;
             this.label28.Text = "（70t加强）";
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label29.Location = new System.Drawing.Point(769, 219);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(156, 20);
+            this.label29.TabIndex = 39;
+            this.label29.Text = "本次段修时间：";
+            // 
+            // textBox1_CurrentTime
+            // 
+            this.textBox1_CurrentTime.Font = new System.Drawing.Font("宋体", 14F);
+            this.textBox1_CurrentTime.Location = new System.Drawing.Point(773, 250);
+            this.textBox1_CurrentTime.Name = "textBox1_CurrentTime";
+            this.textBox1_CurrentTime.Size = new System.Drawing.Size(260, 34);
+            this.textBox1_CurrentTime.TabIndex = 38;
+            // 
+            // dateTimePicker1_Dep
+            // 
+            this.dateTimePicker1_Dep.AllowDrop = true;
+            this.dateTimePicker1_Dep.CalendarFont = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dateTimePicker1_Dep.CustomFormat = "";
+            this.dateTimePicker1_Dep.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dateTimePicker1_Dep.Location = new System.Drawing.Point(207, 434);
+            this.dateTimePicker1_Dep.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
+            this.dateTimePicker1_Dep.MinDate = new System.DateTime(1991, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1_Dep.Name = "dateTimePicker1_Dep";
+            this.dateTimePicker1_Dep.Size = new System.Drawing.Size(249, 34);
+            this.dateTimePicker1_Dep.TabIndex = 3;
+            this.dateTimePicker1_Dep.Value = new System.DateTime(2018, 4, 1, 0, 0, 0, 0);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(203, 401);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(156, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "前次段修时间：";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(197, 217);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(270, 271);
+            this.panel1.TabIndex = 40;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(473, 360);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(560, 127);
+            this.panel2.TabIndex = 41;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1122, 712);
+            this.Controls.Add(this.label29);
+            this.Controls.Add(this.textBox1_CurrentTime);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label19);
@@ -531,6 +570,8 @@
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label25);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Name = "Form1";
             this.Text = "Railway Vehicle Repair Interval Process";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -545,9 +586,7 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1_Dep;
         private System.Windows.Forms.DateTimePicker dateTimePicker2_Fac;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1_Generate;
         private System.Windows.Forms.TextBox textBox1_DBG;
@@ -580,6 +619,12 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox textBox1_CurrentTime;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1_Dep;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

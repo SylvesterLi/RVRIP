@@ -60,7 +60,7 @@ namespace RailwayVehicleRapairIntervalCompute
         /// <summary>
         /// 下次段修日期
         /// </summary>
-        public DateTime nextDepotDate { get; set; }
+        public DateTime currentDepotDate { get; set; }
         /// <summary>
         /// 下次厂修日期
         /// </summary>
@@ -70,9 +70,9 @@ namespace RailwayVehicleRapairIntervalCompute
         /// </summary>
         public int SealDuration { get; set; }
         /// <summary>
-        /// 下次厂修期（预留）
+        /// 下次段修期
         /// </summary>
-        public DateTime vNextFacDate { get; set; }
+        public DateTime vNextDepotDate { get; set; }
         /// <summary>
         /// 提示信息
         /// </summary>

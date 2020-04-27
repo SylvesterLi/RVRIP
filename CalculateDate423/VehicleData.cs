@@ -20,7 +20,6 @@ namespace CalculateDate423
             //DateTime produceDate, 
             //int SealSpan
 
-
             //计算上次段修距离上次厂修的时间差
             //Gate用来储存时间差
             int Gate_year = vehicle.previousDepotDate.Year - vehicle.previousFactoryDate.Year;
@@ -28,12 +27,9 @@ namespace CalculateDate423
             decimal Gate_sum = Gate_year * 12 + Gate_month;
 
 
-            //70t通用.
+            //70t通用
             if (vehicle.GenTpSelection == 0)
             {
-                
-
-
                 //此时开始判断是否需要加强段修。开始分类,判断特殊情况。
                 int predictFacDate = vehicle.previousFactoryDate.AddMonths(vehicle.SealDuration).Year + 8;
                 if ((predictFacDate == 2020 || predictFacDate == 2021)&&((vehicle.previousFactoryDate.Year-vehicle.produceDate.Year)<2))
@@ -70,14 +66,16 @@ namespace CalculateDate423
                         if (sealEndTime.Year == 2020 || sealEndTime.Year == 2021)
                         {
                             //在2020-2011期间，则先加两年再加3个月，得到下一次厂修日期
-                            vehicle.nextDepotDate = sealEndTime.AddMonths(24).AddMonths(3);
+                            vehicle.currentDepotDate = sealEndTime.AddMonths(24).AddMonths(3);//vehicle.previousDepotDate.AddMonths(vehicle.SealDuration);
                             vehicle.nextFactoryDate = vehicle.nextFactoryDate.AddMonths(3);
+                            vehicle.vNextDepotDate = vehicle.currentDepotDate.AddMonths(27);
                         }
                         else
                         {
                             //如果不在2020-2011，则按照正常算
                             //前面的FactoryDate不用算了
-                            vehicle.nextDepotDate = sealEndTime.AddMonths(24);
+                            vehicle.currentDepotDate = sealEndTime.AddMonths(27);
+                            vehicle.vNextDepotDate = vehicle.currentDepotDate.AddMonths(27);
                         }
                         vehicle.n = n;
                         break;
@@ -89,7 +87,8 @@ namespace CalculateDate423
                             //本次为加强段修，下次做厂修
                             vehicle.nextFactoryDate = vehicle.previousFactoryDate.AddMonths(24 * 5).AddMonths(vehicle.SealDuration);
                             vehicle.enhanceDepotDate = vehicle.previousFactoryDate.AddYears(8).AddMonths(vehicle.SealDuration);
-                            vehicle.nextDepotDate = vehicle.enhanceDepotDate;
+                            vehicle.currentDepotDate = vehicle.enhanceDepotDate;
+                            vehicle.vNextDepotDate = vehicle.currentDepotDate.AddMonths(24);
                             vehicle.n = n;
                         }
                         else
@@ -122,13 +121,15 @@ namespace CalculateDate423
                 if (sealEndTime.Year == 2020 || sealEndTime.Year == 2021)
                 {
                     //在2020-2011期间，则先加两年再加3个月，得到下一次厂修日期
-                    vehicle.nextDepotDate = sealEndTime.AddMonths(18).AddMonths(3);
+                    vehicle.currentDepotDate = sealEndTime.AddMonths(18).AddMonths(3);
                     vehicle.nextFactoryDate = vehicle.nextFactoryDate.AddMonths(3).AddMonths(vehicle.SealDuration);
+                    vehicle.vNextDepotDate = vehicle.currentDepotDate.AddMonths(20);
                 }
                 else
                 {
                     //如果不在2020-2011，则按照正常算
-                    vehicle.nextDepotDate = sealEndTime.AddMonths(18).AddMonths(vehicle.SealDuration);
+                    vehicle.currentDepotDate = sealEndTime.AddMonths(20).AddMonths(vehicle.SealDuration);
+                    vehicle.vNextDepotDate = vehicle.currentDepotDate.AddMonths(20);
                 }
                 vehicle.n = n;
                 vehicle.warningInfo += "\r\n60t通用类型";

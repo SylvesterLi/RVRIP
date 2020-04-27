@@ -69,10 +69,12 @@ namespace CalculateDate423
             if(vResult==null)
             {
                 MessageBox.Show("vResult为null,检查计算Kernel");
-
+                return; 
             }
-            textBox_NextDep.Text = vResult.nextDepotDate.Date.ToString();
-            textBox_NextFac.Text = vResult.nextFactoryDate.Date.ToString();
+            textBox_NextDep.Text = vResult.vNextDepotDate.ToLongDateString();
+            textBox1_CurrentTime.Text = vResult.currentDepotDate.ToLongDateString();
+            textBox_NextFac.Text = vResult.nextFactoryDate.ToLongDateString();
+            
             label9.Text = "修程进度：" + vResult.n.ToString();
             //进度条显示
             ProgressBarScaleDisplay(vResult.GenType, vResult.n);
