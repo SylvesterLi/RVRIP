@@ -66,7 +66,11 @@ namespace CalculateDate423
 
             //需要设置int GenTp, DateTime pre_depDate, DateTime pre_facDate, DateTime produceDate, int SealSpan
             RailwayVehicleModel vResult = VehicleData.DateProcessKernel(vehicleModel);
-            
+            if(vResult==null)
+            {
+                MessageBox.Show("vResult为null,检查计算Kernel");
+
+            }
             textBox_NextDep.Text = vResult.nextDepotDate.Date.ToString();
             textBox_NextFac.Text = vResult.nextFactoryDate.Date.ToString();
             label9.Text = "修程进度：" + vResult.n.ToString();

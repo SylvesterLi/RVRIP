@@ -25,7 +25,7 @@ namespace CalculateDate423
             //Gate用来储存时间差
             int Gate_year = vehicle.previousDepotDate.Year - vehicle.previousFactoryDate.Year;
             int Gate_month = vehicle.previousDepotDate.Month - vehicle.previousFactoryDate.Month;
-            int Gate_sum = Gate_year * 12 + Gate_month;
+            decimal Gate_sum = Gate_year * 12 + Gate_month;
 
 
             //70t通用.
@@ -40,20 +40,22 @@ namespace CalculateDate423
                 {
                     //GenTp = 2;//70t的特殊情况，需要加强段修.但后面不再需要GenTp此参数，由描述车型更精确的vehicle.GenType替代
                     vehicle.GenType = vehicleGenType.Spc70t;
-                    vehicle.warningInfo += "70t特殊类型";
+                    vehicle.warningInfo += "\r\n70t特殊类型";
                 }
                 else
                 {
                     vehicle.GenType = vehicleGenType.Gen70t;
-                    vehicle.warningInfo += "70t通用类型";
+                    vehicle.warningInfo += "\r\n70t通用类型";
                 }
-
+                
                 //段修修程为24个月 n为第几次段修
-                int n = (int)Math.Round((double)(Gate_sum / 24), 0);//四舍五入为了减少误差
+                int n = (int)Math.Round(Convert.ToDouble(Gate_sum / 24), MidpointRounding.AwayFromZero);//四舍五入为了减少误差
+
+         
                 //判断是否修正过
                 if (vehicle.previousDepotDate.Date != vehicle.previousFactoryDate.AddMonths(n * 24).Date)
                 {
-                    vehicle.warningInfo = "\r\n数据经过修正：之前" + vehicle.previousDepotDate + ";修正后：" + vehicle.previousFactoryDate.AddMonths(n * 24);
+                    vehicle.warningInfo = "\r\n前次段修数据经过修正,之前:" + vehicle.previousDepotDate + ";\r\n修正后：" + vehicle.previousFactoryDate.AddMonths(n * 24);
                 }
                 vehicle.previousDepotDate = vehicle.previousFactoryDate.AddMonths(n * 24);
                 
@@ -77,6 +79,7 @@ namespace CalculateDate423
                             //前面的FactoryDate不用算了
                             vehicle.nextDepotDate = sealEndTime.AddMonths(24);
                         }
+                        vehicle.n = n;
                         break;
                     case vehicleGenType.Spc70t:
                         //首先判断n是否为3，保险起见
@@ -105,14 +108,14 @@ namespace CalculateDate423
             {
                 vehicle.GenType = vehicleGenType.Gen60t;
                 //段修修程为18个月 n为第几次段修
-                int n = (int)Math.Round((double)(Gate_sum / 18), 0);//四舍五入为了减少误差
+                int n = (int)Math.Round((double)(Gate_sum / 18), MidpointRounding.AwayFromZero);//四舍五入为了减少误差
                 //计算增加修程
                 //将前n次的18个月+剩下的6-n次的20个月加入到上次厂修 即可求出下次厂修时间
                 vehicle.nextFactoryDate = vehicle.previousFactoryDate.AddMonths((6 - n) * 20 + n * 18);
                 //修正上次段修时间
                 if (vehicle.previousDepotDate.Date != vehicle.previousFactoryDate.AddMonths(n * 18).Date)
                 {
-                    vehicle.warningInfo = "\r\n数据经过修正：之前" + vehicle.previousDepotDate + ";修正后：" + vehicle.previousFactoryDate.AddMonths(n * 18);
+                    vehicle.warningInfo = "\r\n前次段修数据经过修正,之前:" + vehicle.previousDepotDate + ";\r\n修正后：" + vehicle.previousFactoryDate.AddMonths(n * 18);
                 }
                 vehicle.previousDepotDate = vehicle.previousFactoryDate.AddMonths(n * 18);
                 DateTime sealEndTime = vehicle.previousDepotDate.AddMonths(vehicle.SealDuration);
@@ -128,7 +131,7 @@ namespace CalculateDate423
                     vehicle.nextDepotDate = sealEndTime.AddMonths(18).AddMonths(vehicle.SealDuration);
                 }
                 vehicle.n = n;
-                vehicle.warningInfo += "60t通用类型";
+                vehicle.warningInfo += "\r\n60t通用类型";
 
             }
             else//其他车就不用改修程
