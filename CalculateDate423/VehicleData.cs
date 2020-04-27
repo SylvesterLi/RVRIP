@@ -60,7 +60,6 @@ namespace CalculateDate423
                 switch (vehicle.GenType)
                 {
                     case vehicleGenType.Gen70t:
-
                         //计算增加修程
                         //将前n次的24个月+剩下的4-n次的27个月加入到上次厂修 即可求出下次厂修时间
                         vehicle.nextFactoryDate = vehicle.previousFactoryDate.AddMonths((4 - n) * 27 + n * 24).AddMonths(vehicle.SealDuration);
@@ -78,12 +77,8 @@ namespace CalculateDate423
                             //前面的FactoryDate不用算了
                             vehicle.nextDepotDate = sealEndTime.AddMonths(24);
                         }
-
                         break;
-
-
                     case vehicleGenType.Spc70t:
-
                         //首先判断n是否为3，保险起见
                         if (n == 3)
                         {
@@ -98,15 +93,11 @@ namespace CalculateDate423
                         {
                             vehicle = null;
                         }
-
                         break;
-
                     default:
                         vehicle = null;
                         break;
                 }
-                
-
             }
 
             //60t通用
@@ -147,8 +138,6 @@ namespace CalculateDate423
                 //其他车暂时不写
                 vehicle = null;
             }
-
-
             return vehicle;
         }
     }

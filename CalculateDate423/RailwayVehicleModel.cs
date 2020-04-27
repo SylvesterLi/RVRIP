@@ -8,8 +8,6 @@ namespace RailwayVehicleRapairIntervalCompute
     public class RailwayVehicleModel
     {
         //ModelClass 集中管理参数
-
-
         //参数管理：
         //1.车辆类型
         //.车号
@@ -22,9 +20,7 @@ namespace RailwayVehicleRapairIntervalCompute
         //.封存日期
         //.下下次厂修（预留）
         //.段修进度
-        //警告信息（包含参数未填报错、前次段修修正、加强段修车提示）
-
-        //ToDo:留言区
+        //.警告信息（包含参数未填报错、前次段修修正、加强段修车提示）
 
 
         /// <summary>
