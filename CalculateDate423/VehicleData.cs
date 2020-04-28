@@ -11,7 +11,6 @@ namespace CalculateDate423
     public class VehicleData
     {
 
-
         public static RailwayVehicleModel DateProcessKernel(RailwayVehicleModel vehicle)
         {
             //需要设置int GenTp, 
