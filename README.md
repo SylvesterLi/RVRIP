@@ -8,7 +8,7 @@
 ![](2.png)
 
 ## Pre-Tips
-如果您想在此Repository基础上构建``` WPF```、```WebApp```等.Net平台程序，只需添加```RailwayVehicleModel```、``` VehicleData```类，实例化***RailwayVehicleModel***，给***RailwayVehicleModel*** 下 **5** 项属性赋值：
+如果您想在此Repository基础上构建```WPF```、```WebApp```等.Net平台程序，只需添加```RailwayVehicleModel```、```VehicleData```类，实例化***RailwayVehicleModel***，给***RailwayVehicleModel***下**5** 项属性赋值：
 
 ```
 vehicleModel.GenTpSelection
