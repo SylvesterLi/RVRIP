@@ -1,6 +1,10 @@
 # RVRIP
-RailwayVehicleRapairIntervalProcess
+Railway Vehicle Rapair Interval Process
 
-![](https://raw.githubusercontent.com/sannnyu/RVRIP/master/Snip426.png?token=AD6JSTDVF6RLMAJFEIK5GGC6UWTRS)
+开发文档：
+
+
+
+
 
 dateTime.AddMonths(2);不会覆盖dateTime的值，只会返回一个new instance。
