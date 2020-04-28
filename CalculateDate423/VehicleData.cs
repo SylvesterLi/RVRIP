@@ -1,14 +1,10 @@
 ﻿using RailwayVehicleRapairIntervalCompute;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using static RailwayVehicleRapairIntervalCompute.RailwayVehicleModel;
 
 namespace CalculateDate423
 {
 
-    public class VehicleData
+    public static class VehicleData
     {
 
         public static RailwayVehicleModel DateProcessKernel(RailwayVehicleModel vehicle)
@@ -34,12 +30,12 @@ namespace CalculateDate423
                 if ((predictFacDate == 2020 || predictFacDate == 2021)&&((vehicle.previousFactoryDate.Year-vehicle.produceDate.Year)<2))
                 {
                     //GenTp = 2;//70t的特殊情况，需要加强段修.但后面不再需要GenTp此参数，由描述车型更精确的vehicle.GenType替代
-                    vehicle.GenType = vehicleGenType.Spc70t;
+                    vehicle.GenType = RailwayVehicleModel.vehicleGenType.Spc70t;
                     vehicle.warningInfo += "\r\n70t特殊类型";
                 }
                 else
                 {
-                    vehicle.GenType = vehicleGenType.Gen70t;
+                    vehicle.GenType = RailwayVehicleModel.vehicleGenType.Gen70t;
                     vehicle.warningInfo += "\r\n70t通用类型";
                 }
                 
@@ -56,7 +52,7 @@ namespace CalculateDate423
                 
                 switch (vehicle.GenType)
                 {
-                    case vehicleGenType.Gen70t:
+                    case RailwayVehicleModel.vehicleGenType.Gen70t:
                         //计算增加修程
                         //将前n次的24个月+剩下的4-n次的27个月加入到上次厂修 即可求出下次厂修时间
                         vehicle.nextFactoryDate = vehicle.previousFactoryDate.AddMonths((4 - n) * 27 + n * 24).AddMonths(vehicle.SealDuration);
@@ -78,7 +74,7 @@ namespace CalculateDate423
                         }
                         vehicle.n = n;
                         break;
-                    case vehicleGenType.Spc70t:
+                    case RailwayVehicleModel.vehicleGenType.Spc70t:
                         //首先判断n是否为3，保险起见
                         if (n == 3)
                         {
@@ -104,7 +100,7 @@ namespace CalculateDate423
             //60t通用
             else if (vehicle.GenTpSelection == 1)
             {
-                vehicle.GenType = vehicleGenType.Gen60t;
+                vehicle.GenType = RailwayVehicleModel.vehicleGenType.Gen60t;
                 //段修修程为18个月 n为第几次段修
                 int n = (int)Math.Round((double)(Gate_sum / 18), MidpointRounding.AwayFromZero);//四舍五入为了减少误差
                 //计算增加修程
