@@ -1,0 +1,5 @@
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\ExcelBatch\bin\Debug\ExcelBatch.dll
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\ExcelBatch\bin\Debug\ExcelBatch.pdb
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\ExcelBatch\obj\Debug\ExcelBatch.csprojAssemblyReference.cache
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\ExcelBatch\obj\Debug\ExcelBatch.dll
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\ExcelBatch\obj\Debug\ExcelBatch.pdb

@@ -71,6 +71,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonBatch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -524,11 +525,21 @@
             this.panel2.Size = new System.Drawing.Size(560, 127);
             this.panel2.TabIndex = 41;
             // 
+            // buttonBatch
+            // 
+            this.buttonBatch.Location = new System.Drawing.Point(21, 655);
+            this.buttonBatch.Name = "buttonBatch";
+            this.buttonBatch.Size = new System.Drawing.Size(42, 36);
+            this.buttonBatch.TabIndex = 42;
+            this.buttonBatch.UseVisualStyleBackColor = true;
+            this.buttonBatch.Click += new System.EventHandler(this.buttonBatch_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1122, 712);
+            this.Controls.Add(this.buttonBatch);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.textBox1_CurrentTime);
             this.Controls.Add(this.label28);
@@ -625,6 +636,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button buttonBatch;
     }
 }
 

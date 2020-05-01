@@ -62,6 +62,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BatchProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BatchProcess.Designer.cs">
+      <DependentUpon>BatchProcess.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     <Compile Include="VehicleData.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BatchProcess.resx">
+      <DependentUpon>BatchProcess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

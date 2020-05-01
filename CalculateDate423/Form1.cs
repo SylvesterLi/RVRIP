@@ -154,7 +154,11 @@ namespace CalculateDate423
 
         }
 
-
+        private void buttonBatch_Click(object sender, EventArgs e)
+        {
+            Form bpForm = new BatchProcess();
+            bpForm.ShowDialog();
+        }
     }
 
 }
