@@ -11,18 +11,23 @@ namespace ExcelBatch
 {
     public class Import
     {
-        public void Imp()
+        public static void Imp()
         {
-            var file = new System.IO.FileInfo(@"c:\temp\myWorkbook.xlsx");
+            var file = new System.IO.FileInfo(@"c:\temp\acc.xlsx");
             using (ExcelPackage package = new ExcelPackage(file))
             {
+                
                 ExcelRange cells = package.Workbook.Worksheets[0].Cells;
+
                 for (int i = 0; i < 27; i++)
                 {
-                    string s = cells[3, 5].Value.ToString();
+                    string s = cells[0, i].Value.ToString();
+                    Console.WriteLine(s);
                 }
+                
 
-               
+                
+
 
             }
         }
