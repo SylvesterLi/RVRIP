@@ -20,7 +20,7 @@ vehicleModel.SealDuration
 
 再传递给***VehicleData.DateProcessKernel(RailwayVehicleModel vehicleModel)***，通过Kernel处理，返回***RailwayVehicleModel***实例，直接显示在UI即可。
 
-## Reminder:
+## Reminder
 **<font color=red>代码中不含有任何铁路车辆数据，不含有任何机密，不含有任何工作文件，不含有任何与国家铁路机密一切相关数据。</font>**
 
 ### And,this program is dedicated to provide convenience for China Railway Cause developers. It wouldn't be internationalized, the doc only provides Chinese.
