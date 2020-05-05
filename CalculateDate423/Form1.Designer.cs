@@ -72,6 +72,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonBatch = new System.Windows.Forms.Button();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -129,7 +130,7 @@
             this.dateTimePicker2_Fac.Name = "dateTimePicker2_Fac";
             this.dateTimePicker2_Fac.Size = new System.Drawing.Size(249, 34);
             this.dateTimePicker2_Fac.TabIndex = 2;
-            this.dateTimePicker2_Fac.Value = new System.DateTime(2012, 4, 1, 0, 0, 0, 0);
+            this.dateTimePicker2_Fac.Value = new System.DateTime(2014, 2, 1, 0, 0, 0, 0);
             // 
             // label4
             // 
@@ -153,6 +154,7 @@
             // 
             // textBox1_DBG
             // 
+            this.textBox1_DBG.Font = new System.Drawing.Font("宋体", 12F);
             this.textBox1_DBG.Location = new System.Drawing.Point(487, 71);
             this.textBox1_DBG.Multiline = true;
             this.textBox1_DBG.Name = "textBox1_DBG";
@@ -173,7 +175,7 @@
             // textBox_NextDep
             // 
             this.textBox_NextDep.Font = new System.Drawing.Font("宋体", 14F);
-            this.textBox_NextDep.Location = new System.Drawing.Point(772, 420);
+            this.textBox_NextDep.Location = new System.Drawing.Point(20, 62);
             this.textBox_NextDep.Name = "textBox_NextDep";
             this.textBox_NextDep.Size = new System.Drawing.Size(249, 34);
             this.textBox_NextDep.TabIndex = 11;
@@ -182,7 +184,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(768, 387);
+            this.label6.Location = new System.Drawing.Point(16, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(156, 20);
             this.label6.TabIndex = 12;
@@ -192,7 +194,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(483, 387);
+            this.label7.Location = new System.Drawing.Point(288, 29);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(156, 20);
             this.label7.TabIndex = 13;
@@ -201,7 +203,7 @@
             // textBox_NextFac
             // 
             this.textBox_NextFac.Font = new System.Drawing.Font("宋体", 14F);
-            this.textBox_NextFac.Location = new System.Drawing.Point(487, 420);
+            this.textBox_NextFac.Location = new System.Drawing.Point(292, 62);
             this.textBox_NextFac.Name = "textBox_NextFac";
             this.textBox_NextFac.Size = new System.Drawing.Size(249, 34);
             this.textBox_NextFac.TabIndex = 14;
@@ -227,7 +229,7 @@
             this.dateTimePicker1_Produce.Name = "dateTimePicker1_Produce";
             this.dateTimePicker1_Produce.Size = new System.Drawing.Size(249, 34);
             this.dateTimePicker1_Produce.TabIndex = 1;
-            this.dateTimePicker1_Produce.Value = new System.DateTime(2012, 4, 1, 0, 0, 0, 0);
+            this.dateTimePicker1_Produce.Value = new System.DateTime(2005, 2, 1, 0, 0, 0, 0);
             // 
             // progressBar1
             // 
@@ -496,7 +498,7 @@
             this.dateTimePicker1_Dep.Name = "dateTimePicker1_Dep";
             this.dateTimePicker1_Dep.Size = new System.Drawing.Size(249, 34);
             this.dateTimePicker1_Dep.TabIndex = 3;
-            this.dateTimePicker1_Dep.Value = new System.DateTime(2018, 4, 1, 0, 0, 0, 0);
+            this.dateTimePicker1_Dep.Value = new System.DateTime(2018, 7, 1, 0, 0, 0, 0);
             // 
             // label3
             // 
@@ -520,6 +522,10 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.textBox_NextFac);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.textBox_NextDep);
             this.panel2.Location = new System.Drawing.Point(473, 360);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(560, 127);
@@ -565,10 +571,6 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dateTimePicker1_Produce);
-            this.Controls.Add(this.textBox_NextFac);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox_NextDep);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1_DBG);
             this.Controls.Add(this.button1_Generate);
@@ -586,6 +588,8 @@
             this.Name = "Form1";
             this.Text = "Railway Vehicle Repair Interval Process";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

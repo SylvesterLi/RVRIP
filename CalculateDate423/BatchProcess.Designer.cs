@@ -173,7 +173,7 @@
             this.buttonImportExcel.Name = "buttonImportExcel";
             this.buttonImportExcel.Size = new System.Drawing.Size(145, 35);
             this.buttonImportExcel.TabIndex = 2;
-            this.buttonImportExcel.Text = "导入Excel";
+            this.buttonImportExcel.Text = "[导入]Excel";
             this.buttonImportExcel.UseVisualStyleBackColor = true;
             this.buttonImportExcel.Click += new System.EventHandler(this.buttonImportExcel_Click);
             // 
@@ -185,6 +185,7 @@
             this.buttonGetTemplate.TabIndex = 3;
             this.buttonGetTemplate.Text = "获取Excel模板";
             this.buttonGetTemplate.UseVisualStyleBackColor = true;
+            this.buttonGetTemplate.Click += new System.EventHandler(this.buttonGetTemplate_Click);
             // 
             // buttonOutput
             // 
@@ -192,7 +193,7 @@
             this.buttonOutput.Name = "buttonOutput";
             this.buttonOutput.Size = new System.Drawing.Size(145, 35);
             this.buttonOutput.TabIndex = 4;
-            this.buttonOutput.Text = "导出Excel";
+            this.buttonOutput.Text = "[导出]Excel";
             this.buttonOutput.UseVisualStyleBackColor = true;
             this.buttonOutput.Click += new System.EventHandler(this.buttonOutput_Click);
             // 

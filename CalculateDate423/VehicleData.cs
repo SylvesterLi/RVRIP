@@ -102,28 +102,29 @@ namespace CalculateDate423
             {
                 vehicle.GenType = RailwayVehicleModel.vehicleGenType.Gen60t;
                 //段修修程为18个月 n为第几次段修
-                int n = (int)Math.Round((double)(Gate_sum / 18), MidpointRounding.AwayFromZero);//四舍五入为了减少误差
+                int n = (int)Math.Round(Convert.ToDouble(Gate_sum / 18), MidpointRounding.AwayFromZero);//四舍五入为了减少误差
                 //计算增加修程
                 //将前n次的18个月+剩下的6-n次的20个月加入到上次厂修 即可求出下次厂修时间
-                vehicle.nextFactoryDate = vehicle.previousFactoryDate.AddMonths((6 - n) * 20 + n * 18);
+                vehicle.nextFactoryDate = vehicle.previousFactoryDate.AddMonths((6 - n) * 20 + n * 18).AddMonths(vehicle.SealDuration);
                 //修正上次段修时间
                 if (vehicle.previousDepotDate.Date != vehicle.previousFactoryDate.AddMonths(n * 18).Date)
                 {
                     vehicle.warningInfo = "\r\n前次段修数据经过修正,之前:" + vehicle.previousDepotDate + ";\r\n修正后：" + vehicle.previousFactoryDate.AddMonths(n * 18);
                 }
                 vehicle.previousDepotDate = vehicle.previousFactoryDate.AddMonths(n * 18);
+                //密封期
                 DateTime sealEndTime = vehicle.previousDepotDate.AddMonths(vehicle.SealDuration);
                 if (sealEndTime.Year == 2020 || sealEndTime.Year == 2021)
                 {
                     //在2020-2011期间，则先加两年再加3个月，得到下一次厂修日期
-                    vehicle.currentDepotDate = sealEndTime.AddMonths(18).AddMonths(3);
-                    vehicle.nextFactoryDate = vehicle.nextFactoryDate.AddMonths(3).AddMonths(vehicle.SealDuration);
+                    vehicle.currentDepotDate = sealEndTime.AddMonths(18).AddMonths(2);
+                    vehicle.nextFactoryDate = vehicle.nextFactoryDate.AddMonths(2).AddMonths(vehicle.SealDuration);
                     vehicle.vNextDepotDate = vehicle.currentDepotDate.AddMonths(20);
                 }
                 else
                 {
                     //如果不在2020-2011，则按照正常算
-                    vehicle.currentDepotDate = sealEndTime.AddMonths(20).AddMonths(vehicle.SealDuration);
+                    vehicle.currentDepotDate = vehicle.previousDepotDate.AddMonths(20).AddMonths(vehicle.SealDuration);
                     vehicle.vNextDepotDate = vehicle.currentDepotDate.AddMonths(20);
                 }
                 vehicle.n = n;
