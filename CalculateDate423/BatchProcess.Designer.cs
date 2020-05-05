@@ -44,6 +44,7 @@
             this.buttonImportExcel = new System.Windows.Forms.Button();
             this.buttonGetTemplate = new System.Windows.Forms.Button();
             this.buttonOutput = new System.Windows.Forms.Button();
+            this.buttonGenerateData = new System.Windows.Forms.Button();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -98,63 +99,63 @@
             this.Position.HeaderText = "台位";
             this.Position.MinimumWidth = 6;
             this.Position.Name = "Position";
-            this.Position.Width = 62;
+            this.Position.Width = 66;
             // 
             // vehCate
             // 
             this.vehCate.HeaderText = "车种车型";
             this.vehCate.MinimumWidth = 6;
             this.vehCate.Name = "vehCate";
-            this.vehCate.Width = 75;
+            this.vehCate.Width = 96;
             // 
             // produceDate
             // 
             this.produceDate.HeaderText = "制造年月";
             this.produceDate.MinimumWidth = 6;
             this.produceDate.Name = "produceDate";
-            this.produceDate.Width = 75;
+            this.produceDate.Width = 96;
             // 
             // preFactoryDate
             // 
             this.preFactoryDate.HeaderText = "前次厂修";
             this.preFactoryDate.MinimumWidth = 6;
             this.preFactoryDate.Name = "preFactoryDate";
-            this.preFactoryDate.Width = 75;
+            this.preFactoryDate.Width = 96;
             // 
             // preDepotDate
             // 
             this.preDepotDate.HeaderText = "前次段修";
             this.preDepotDate.MinimumWidth = 6;
             this.preDepotDate.Name = "preDepotDate";
-            this.preDepotDate.Width = 75;
+            this.preDepotDate.Width = 96;
             // 
             // SealDuration
             // 
             this.SealDuration.HeaderText = "封存期";
             this.SealDuration.MinimumWidth = 6;
             this.SealDuration.Name = "SealDuration";
-            this.SealDuration.Width = 75;
+            this.SealDuration.Width = 81;
             // 
             // curFactoryDate
             // 
             this.curFactoryDate.HeaderText = "本次厂修";
             this.curFactoryDate.MinimumWidth = 6;
             this.curFactoryDate.Name = "curFactoryDate";
-            this.curFactoryDate.Width = 75;
+            this.curFactoryDate.Width = 96;
             // 
             // nextDepotDate
             // 
             this.nextDepotDate.HeaderText = "下次段修";
             this.nextDepotDate.MinimumWidth = 6;
             this.nextDepotDate.Name = "nextDepotDate";
-            this.nextDepotDate.Width = 75;
+            this.nextDepotDate.Width = 96;
             // 
             // nextFactoryDate
             // 
             this.nextFactoryDate.HeaderText = "下次厂修";
             this.nextFactoryDate.MinimumWidth = 6;
             this.nextFactoryDate.Name = "nextFactoryDate";
-            this.nextFactoryDate.Width = 75;
+            this.nextFactoryDate.Width = 96;
             // 
             // tabControl1
             // 
@@ -195,11 +196,22 @@
             this.buttonOutput.UseVisualStyleBackColor = true;
             this.buttonOutput.Click += new System.EventHandler(this.buttonOutput_Click);
             // 
+            // buttonGenerateData
+            // 
+            this.buttonGenerateData.Location = new System.Drawing.Point(340, 475);
+            this.buttonGenerateData.Name = "buttonGenerateData";
+            this.buttonGenerateData.Size = new System.Drawing.Size(145, 35);
+            this.buttonGenerateData.TabIndex = 5;
+            this.buttonGenerateData.Text = "生成结果";
+            this.buttonGenerateData.UseVisualStyleBackColor = true;
+            this.buttonGenerateData.Click += new System.EventHandler(this.buttonGenerateData_Click);
+            // 
             // BatchProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 518);
+            this.Controls.Add(this.buttonGenerateData);
             this.Controls.Add(this.buttonOutput);
             this.Controls.Add(this.buttonGetTemplate);
             this.Controls.Add(this.buttonImportExcel);
@@ -231,5 +243,6 @@
         private System.Windows.Forms.Button buttonImportExcel;
         private System.Windows.Forms.Button buttonGetTemplate;
         private System.Windows.Forms.Button buttonOutput;
+        private System.Windows.Forms.Button buttonGenerateData;
     }
 }
