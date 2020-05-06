@@ -1,0 +1,5 @@
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\CalcTest4RVRIP\bin\Debug\CalcTest4RVRIP.exe
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\CalcTest4RVRIP\bin\Debug\CalcTest4RVRIP.pdb
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\CalcTest4RVRIP\obj\Debug\CalcTest4RVRIP.csprojAssemblyReference.cache
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\CalcTest4RVRIP\obj\Debug\CalcTest4RVRIP.exe
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\CalcTest4RVRIP\obj\Debug\CalcTest4RVRIP.pdb

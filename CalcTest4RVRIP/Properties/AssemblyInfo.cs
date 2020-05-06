@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("ExcelBatch")]
+[assembly: AssemblyTitle("CalcTest4RVRIP")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ExcelBatch")]
+[assembly: AssemblyProduct("CalcTest4RVRIP")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("2c215f41-651f-428a-a105-0799552b8ead")]
+[assembly: Guid("6de81216-3c88-4bdb-b9d8-cf319850421d")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

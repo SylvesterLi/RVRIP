@@ -7,7 +7,12 @@ namespace CalculateDate423
     public static class VehicleData
     {
 
-        public static RailwayVehicleModel DateProcessKernel(RailwayVehicleModel vehicle)
+        /// <summary>
+        /// 修程修制改革车型计算核心
+        /// </summary>
+        /// <param name="vehicle"></param>
+        /// <returns></returns>
+        public static RailwayVehicleModel ReDateProcessKernel(RailwayVehicleModel vehicle)
         {
             //需要设置int GenTp, 
             //DateTime pre_depDate, 
@@ -140,5 +145,21 @@ namespace CalculateDate423
             }
             return vehicle;
         }
+        
+        /// <summary>
+        /// 处理不参加修程修制改革的车型
+        /// </summary>
+        /// <param name="vehicle"></param>
+        /// <returns></returns>
+        public static RailwayVehicleModel NonDateProcessKernel(RailwayVehicleModel vehicle)
+        {
+            
+
+
+            return vehicle;
+        }
+    
+    
+    
     }
 }

@@ -116,6 +116,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CalcTest4RVRIP\CalcTest4RVRIP.csproj">
+      <Project>{6DE81216-3C88-4BDB-B9D8-CF319850421D}</Project>
+      <Name>CalcTest4RVRIP</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />

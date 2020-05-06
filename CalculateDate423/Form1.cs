@@ -65,7 +65,7 @@ namespace CalculateDate423
             vehicleModel.SealDuration = Convert.ToInt32(textBox_SealSpan.Text);
 
             //需要设置int GenTp, DateTime pre_depDate, DateTime pre_facDate, DateTime produceDate, int SealSpan
-            RailwayVehicleModel vResult = VehicleData.DateProcessKernel(vehicleModel);
+            RailwayVehicleModel vResult = VehicleData.ReDateProcessKernel(vehicleModel);
             if(vResult==null)
             {
                 MessageBox.Show("vResult为null,检查计算Kernel");
