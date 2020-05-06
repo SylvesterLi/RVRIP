@@ -24,22 +24,22 @@ namespace RailwayVehicleRapairIntervalCompute
 
         private void buttonImportExcel_Click(object sender, EventArgs e)
         {
-            var file = new System.IO.FileInfo(@"c:\temp\acc.xlsx");
+            var file = new System.IO.FileInfo(@"C:\Users\SANG-HP\Desktop\myExcel.xlsx");
             using (ExcelPackage package = new ExcelPackage(file))
             {
 
                 ExcelRange cells = package.Workbook.Worksheets[0].Cells;
 
 
-                for (int i = 2; i < 28; i++)
+                for (int i = 2; i < cells.Rows; i++)
                 {
                     int dataGridIndex = dataGridView1.Rows.Add();
-                    for (int j = 1; j < 4; j++)
+                    for (int j = 1; j < 7; j++)
                     {
                         //cells[x,y] x为竖着的值，y是title
                         string s = cells[i, j].Value.ToString();
 
-                        dataGridView1.Rows[dataGridIndex].Cells[j].Value = s;
+                        dataGridView1.Rows[dataGridIndex].Cells[j-1].Value = s;
 
                     }
                 }
