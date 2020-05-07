@@ -23,7 +23,7 @@ namespace RailwayVehicleRapairIntervalCompute
         /// <param name="e"></param>
         private void buttonImportExcel_Click(object sender, EventArgs e)
         {
-            var file = new System.IO.FileInfo(@"C:\Users\SANG-HP\Desktop\计划.xlsx");
+            var file = new System.IO.FileInfo(Environment.CurrentDirectory + @"\计划.xlsx");
             if (!file.Exists)
             {
                 MessageBox.Show("未找到【计划.xlsx】");
@@ -58,17 +58,14 @@ namespace RailwayVehicleRapairIntervalCompute
         private void buttonOutput_Click(object sender, EventArgs e)
         {
 
-            FileInfo file = new FileInfo(@"C:\Users\SANG-HP\Desktop\计划生成结果.xlsx");
+            FileInfo file = new FileInfo(Environment.CurrentDirectory + @"\计划生成结果.xlsx");
 
             //通过IO创建文件myExcel
             if (file.Exists)
             {
                 file.Delete();
-                file = new FileInfo(@"C:\Users\SANG-HP\Desktop\计划生成结果.xlsx");
+                file = new FileInfo(Environment.CurrentDirectory + @"\计划生成结果.xlsx");
             }
-
-
-
 
             //创建ExcelPackage对象，这个对象是面对工作簿的，就是里面的所有
             using (ExcelPackage myExcelPackage = new ExcelPackage(file))
@@ -91,12 +88,10 @@ namespace RailwayVehicleRapairIntervalCompute
                         }
                         else
                         {
-                            Exception ex = new Exception("数据为空！");
+                            MessageBox.Show("数据为空！");
                         }
                     }
                 }
-
-
 
                 //设置单元格格式为文本
                 worksheet.Cells["A:I"].Style.Numberformat.Format = "@";
@@ -129,6 +124,8 @@ namespace RailwayVehicleRapairIntervalCompute
                 RailwayVehicleModel vResult = VehicleData.ReDateProcessKernel(model);
                 if (vResult == null)
                 {
+                    
+                    MessageBox.Show(dataGridView1.Rows[i].Cells[1].Value.ToString() + "此项不属于修程修制改革车型，无法判断");
                     continue;
                 }
                 //再赋值给dataGridView后面几个格子
@@ -178,12 +175,11 @@ namespace RailwayVehicleRapairIntervalCompute
 
         }
 
-        private void buttonBack_Click(object sender, EventArgs e)
+      
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            Form bpForm = new Form1();
-            bpForm.Show();
-
-
+            System.Diagnostics.Process.Start(System.Environment.CurrentDirectory);
         }
     }
 }

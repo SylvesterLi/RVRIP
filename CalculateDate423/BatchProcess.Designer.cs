@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +46,8 @@
             this.buttonGetTemplate = new System.Windows.Forms.Button();
             this.buttonOutput = new System.Windows.Forms.Button();
             this.buttonGenerateData = new System.Windows.Forms.Button();
-            this.buttonBack = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -53,13 +55,25 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(972, 419);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "使用说明";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("宋体", 14F);
+            this.textBox1.Location = new System.Drawing.Point(24, 25);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(840, 262);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "1. 下载Excel填写模板（保存在当前文件夹下）\r\n2. 将Excel模板改名为【计划.xlsx】\r\n3. 点击【导入】，可直接读取名为 计划.xlsx 的Ex" +
+    "cel文件\r\n4. 点击【生成结果】计算厂段修日期，显示在软件中。\r\n5. 点击【导出Excel】可导出。\r\n";
             // 
             // tabPage1
             // 
@@ -190,7 +204,7 @@
             // 
             // buttonOutput
             // 
-            this.buttonOutput.Location = new System.Drawing.Point(686, 475);
+            this.buttonOutput.Location = new System.Drawing.Point(662, 475);
             this.buttonOutput.Name = "buttonOutput";
             this.buttonOutput.Size = new System.Drawing.Size(145, 35);
             this.buttonOutput.TabIndex = 4;
@@ -208,21 +222,21 @@
             this.buttonGenerateData.UseVisualStyleBackColor = true;
             this.buttonGenerateData.Click += new System.EventHandler(this.buttonGenerateData_Click);
             // 
-            // buttonBack
+            // button1
             // 
-            this.buttonBack.Location = new System.Drawing.Point(933, 475);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(37, 35);
-            this.buttonBack.TabIndex = 6;
-            this.buttonBack.UseVisualStyleBackColor = true;
-            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            this.button1.Location = new System.Drawing.Point(953, 475);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 35);
+            this.button1.TabIndex = 7;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BatchProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1017, 518);
-            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonGenerateData);
             this.Controls.Add(this.buttonOutput);
             this.Controls.Add(this.buttonGetTemplate);
@@ -230,6 +244,8 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "BatchProcess";
             this.Text = "BatchProcess";
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -256,6 +272,7 @@
         private System.Windows.Forms.Button buttonGetTemplate;
         private System.Windows.Forms.Button buttonOutput;
         private System.Windows.Forms.Button buttonGenerateData;
-        private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
