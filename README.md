@@ -6,6 +6,7 @@
 输入车辆类型、制造日期、前次厂修日期、前次段修日期、封存期（Optional），点击生成即可计算出本次、下次厂段修，以及显示当前所处修程。
 
 ![](2.png)
+![](3.png)
 
 ## Pre-Tips
 如果您想在此Repository基础上构建```WPF```、```WebApp```等.Net平台程序，只需添加```RailwayVehicleModel```、```VehicleData```类，实例化***RailwayVehicleModel***，给***RailwayVehicleModel***下**5** 项属性赋值：
