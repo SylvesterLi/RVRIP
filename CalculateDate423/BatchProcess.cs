@@ -58,7 +58,53 @@ namespace RailwayVehicleRapairIntervalCompute
 
         private void buttonOutput_Click(object sender, EventArgs e)
         {
+            FileInfo file = new FileInfo(@"C:\Users\SANG-HP\Desktop\计划生成结果.xlsx");
 
+            //通过IO创建文件myExcel
+            if (file.Exists)
+            {
+                file.Delete();
+                file = new FileInfo(@"C:\Users\SANG-HP\Desktop\计划生成结果.xlsx");
+            }
+
+
+
+
+            //创建ExcelPackage对象，这个对象是面对工作簿的，就是里面的所有
+            using (ExcelPackage myExcelPackage = new ExcelPackage(file))
+            {
+                //创建ExcelWorkSheet对象，这个对象就是面对表的，是工作簿中单个表
+                ExcelWorksheet worksheet = myExcelPackage.Workbook.Worksheets.Add("Sheet1");
+                //坐标1，1赋值A1就是相当于在Excel中的A1位置赋值了一个A1字符串。
+
+                for (int i = 0; i < dataGridView1.Rows[0].Cells.Count; i++)
+                {
+                    worksheet.Cells[1, i + 1].Value = dataGridView1.Columns[i].HeaderCell.Value;
+                }
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                    {
+                        if (dataGridView1.Rows[i].Cells[j].Value != null)
+                        {
+                            worksheet.Cells[i + 2, j + 1].Value = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        }
+                        else
+                        {
+                            Exception ex = new Exception("数据为空！");
+                        }
+                    }
+                }
+
+
+
+                //设置单元格格式为文本
+                worksheet.Cells["A:I"].Style.Numberformat.Format = "@";
+
+                //save方法就保存我们这个对象，他就会去执行我们刚刚赋值的那些东西
+                myExcelPackage.Save();
+                MessageBox.Show("成功保存在：" + file.FullName);
+            }
         }
 
 
@@ -73,11 +119,8 @@ namespace RailwayVehicleRapairIntervalCompute
             //先计算一个吧
 
             //先上核心
-            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
-
-
-
                 RailwayVehicleModel model = new RailwayVehicleModel();
                 //model.GenTpSelection = (int)dataGridView1.Rows[0].Cells[0].Value;
                 //model.GenTpSelection要先做判断
