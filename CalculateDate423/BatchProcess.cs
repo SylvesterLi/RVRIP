@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using CalcTest4RVRIP;
+﻿using CalcTest4RVRIP;
 using CalculateDate423;
 using OfficeOpenXml;
+using System;
+using System.IO;
+using System.Windows.Forms;
 
 
 namespace RailwayVehicleRapairIntervalCompute
@@ -30,6 +24,11 @@ namespace RailwayVehicleRapairIntervalCompute
         private void buttonImportExcel_Click(object sender, EventArgs e)
         {
             var file = new System.IO.FileInfo(@"C:\Users\SANG-HP\Desktop\计划.xlsx");
+            if (!file.Exists)
+            {
+                MessageBox.Show("未找到【计划.xlsx】");
+                return;
+            }
             using (ExcelPackage package = new ExcelPackage(file))
             {
 
@@ -58,6 +57,7 @@ namespace RailwayVehicleRapairIntervalCompute
 
         private void buttonOutput_Click(object sender, EventArgs e)
         {
+
             FileInfo file = new FileInfo(@"C:\Users\SANG-HP\Desktop\计划生成结果.xlsx");
 
             //通过IO创建文件myExcel
@@ -108,17 +108,13 @@ namespace RailwayVehicleRapairIntervalCompute
         }
 
 
-
+        /// <summary>
+        /// 使用Kernel生成数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonGenerateData_Click(object sender, EventArgs e)
         {
-
-            //应该直接计算了再显示上去吧，这样就很麻烦了
-            //后期附加会不会很麻烦？
-
-            //获取到当前row。直接附加在当前row后面，应该还好
-            //先计算一个吧
-
-            //先上核心
             for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
                 RailwayVehicleModel model = new RailwayVehicleModel();
@@ -147,7 +143,6 @@ namespace RailwayVehicleRapairIntervalCompute
             }
         }
 
-
         /// <summary>
         /// 获取下载模板
         /// </summary>
@@ -155,13 +150,13 @@ namespace RailwayVehicleRapairIntervalCompute
         /// <param name="e"></param>
         private void buttonGetTemplate_Click(object sender, EventArgs e)
         {
-            FileInfo file = new FileInfo(@"C:\Users\SANG-HP\Desktop\计划填写模板.xlsx");
+            FileInfo file = new FileInfo(Environment.CurrentDirectory + @"\计划填写模板.xlsx");
 
             //通过IO创建文件myExcel
             if (file.Exists)
             {
                 file.Delete();
-                file = new FileInfo(@"C:\Users\SANG-HP\Desktop\计划填写模板.xlsx");
+                file = new FileInfo(Environment.CurrentDirectory + @"\计划填写模板.xlsx");
             }
             //创建ExcelPackage对象，这个对象是面对工作簿的，就是里面的所有
             using (ExcelPackage myExcelPackage = new ExcelPackage(file))
@@ -186,7 +181,8 @@ namespace RailwayVehicleRapairIntervalCompute
         private void buttonBack_Click(object sender, EventArgs e)
         {
             Form bpForm = new Form1();
-            bpForm.ShowDialog();
+            bpForm.Show();
+
 
         }
     }

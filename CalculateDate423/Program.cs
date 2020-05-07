@@ -1,7 +1,5 @@
 ﻿using RailwayVehicleRapairIntervalCompute;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace CalculateDate423
@@ -16,7 +14,7 @@ namespace CalculateDate423
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BatchProcess());
+            Application.Run(new Form1());
         }
     }
 }

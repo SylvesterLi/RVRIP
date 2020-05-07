@@ -66,15 +66,15 @@ namespace CalculateDate423
 
             //需要设置int GenTp, DateTime pre_depDate, DateTime pre_facDate, DateTime produceDate, int SealSpan
             RailwayVehicleModel vResult = VehicleData.ReDateProcessKernel(vehicleModel);
-            if(vResult==null)
+            if (vResult == null)
             {
                 MessageBox.Show("vResult为null,检查计算Kernel");
-                return; 
+                return;
             }
             textBox_NextDep.Text = vResult.vNextDepotDate.ToLongDateString();
             textBox1_CurrentTime.Text = vResult.currentDepotDate.ToLongDateString();
             textBox_NextFac.Text = vResult.nextFactoryDate.ToLongDateString();
-            
+
             label9.Text = "修程进度：" + vResult.n.ToString();
             //进度条显示
             ProgressBarScaleDisplay(vResult.GenType, vResult.n);
@@ -94,7 +94,7 @@ namespace CalculateDate423
         {
             string tmp = textBox1_DBG.Text;
             textBox1_DBG.Text = str + "\r\n" + tmp;
-           
+
         }
 
         /// <summary>
@@ -157,7 +157,9 @@ namespace CalculateDate423
         private void buttonBatch_Click(object sender, EventArgs e)
         {
             Form bpForm = new BatchProcess();
-            bpForm.ShowDialog();
+            bpForm.Show();
+           
+
         }
     }
 

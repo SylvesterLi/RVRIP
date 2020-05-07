@@ -32,7 +32,7 @@ namespace CalculateDate423
             {
                 //此时开始判断是否需要加强段修。开始分类,判断特殊情况。
                 int predictFacDate = vehicle.previousFactoryDate.AddMonths(vehicle.SealDuration).Year + 8;
-                if ((predictFacDate == 2020 || predictFacDate == 2021)&&((vehicle.previousFactoryDate.Year-vehicle.produceDate.Year)<2))
+                if ((predictFacDate == 2020 || predictFacDate == 2021) && ((vehicle.previousFactoryDate.Year - vehicle.produceDate.Year) < 2))
                 {
                     //GenTp = 2;//70t的特殊情况，需要加强段修.但后面不再需要GenTp此参数，由描述车型更精确的vehicle.GenType替代
                     vehicle.GenType = RailwayVehicleModel.vehicleGenType.Spc70t;
@@ -43,18 +43,18 @@ namespace CalculateDate423
                     vehicle.GenType = RailwayVehicleModel.vehicleGenType.Gen70t;
                     vehicle.warningInfo += "\r\n70t通用类型";
                 }
-                
+
                 //段修修程为24个月 n为第几次段修
                 int n = (int)Math.Round(Convert.ToDouble(Gate_sum / 24), MidpointRounding.AwayFromZero);//四舍五入为了减少误差
 
-         
+
                 //判断是否修正过
                 if (vehicle.previousDepotDate.Date != vehicle.previousFactoryDate.AddMonths(n * 24).Date)
                 {
                     vehicle.warningInfo = "\r\n前次段修数据经过修正,之前:" + vehicle.previousDepotDate + ";\r\n修正后：" + vehicle.previousFactoryDate.AddMonths(n * 24);
                 }
                 vehicle.previousDepotDate = vehicle.previousFactoryDate.AddMonths(n * 24);
-                
+
                 switch (vehicle.GenType)
                 {
                     case RailwayVehicleModel.vehicleGenType.Gen70t:
@@ -145,7 +145,7 @@ namespace CalculateDate423
             }
             return vehicle;
         }
-        
+
         /// <summary>
         /// 处理不参加修程修制改革的车型
         /// </summary>
@@ -153,13 +153,13 @@ namespace CalculateDate423
         /// <returns></returns>
         public static RailwayVehicleModel NonDateProcessKernel(RailwayVehicleModel vehicle)
         {
-            
 
+            vehicle.warningInfo = "暂不处理非修程修制改革车型";
 
             return vehicle;
         }
-    
-    
-    
+
+
+
     }
 }

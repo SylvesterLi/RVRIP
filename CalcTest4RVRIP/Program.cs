@@ -20,7 +20,8 @@ namespace CalcTest4RVRIP
             DateTime dt = Convert.ToDateTime(time);
 
 
-            Console.WriteLine("Type:"+FixerTooling.GenTpJudge("C70E-A"));
+            //Console.WriteLine("Type:"+FixerTooling.GenTpJudge("C70E-A"));
+            Console.WriteLine(System.Environment.CurrentDirectory);
             Console.ReadKey();
         }
     }
