@@ -110,33 +110,48 @@ namespace RailwayVehicleRapairIntervalCompute
         /// <param name="e"></param>
         private void buttonGenerateData_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            try
             {
-                RailwayVehicleModel model = new RailwayVehicleModel();
-                //model.GenTpSelection = (int)dataGridView1.Rows[0].Cells[0].Value;
-                //model.GenTpSelection要先做判断
-                model.GenTpSelection = FixerTooling.GenTpJudge(dataGridView1.Rows[i].Cells[1].Value.ToString());
-                model.produceDate = FixerTooling.FixProduceTime(dataGridView1.Rows[i].Cells[2].Value.ToString());
-                model.previousFactoryDate = FixerTooling.FixRepairTime(dataGridView1.Rows[i].Cells[3].Value.ToString());
-                model.previousDepotDate = FixerTooling.FixRepairTime(dataGridView1.Rows[i].Cells[4].Value.ToString());
-                model.SealDuration = Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value.ToString());
-
-                RailwayVehicleModel vResult = VehicleData.ReDateProcessKernel(model);
-                if (vResult == null)
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                 {
-                    
-                    MessageBox.Show(dataGridView1.Rows[i].Cells[1].Value.ToString() + "此项不属于修程修制改革车型，无法判断");
-                    continue;
+                    RailwayVehicleModel model = new RailwayVehicleModel();
+                    //model.GenTpSelection = (int)dataGridView1.Rows[0].Cells[0].Value;
+                    //model.GenTpSelection要先做判断
+                    model.GenTpSelection = FixerTooling.GenTpJudge(dataGridView1.Rows[i].Cells[1].Value.ToString());
+                    model.produceDate = FixerTooling.FixProduceTime(dataGridView1.Rows[i].Cells[2].Value.ToString());
+                    model.previousFactoryDate = FixerTooling.FixRepairTime(dataGridView1.Rows[i].Cells[3].Value.ToString());
+                    model.previousDepotDate = FixerTooling.FixRepairTime(dataGridView1.Rows[i].Cells[4].Value.ToString());
+
+                    if (dataGridView1.Rows[i].Cells[5].Value != null)
+                    {
+                        model.SealDuration = Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value.ToString());
+                    }
+                    else
+                    {
+                        model.SealDuration = 0;
+                    }
+
+                    RailwayVehicleModel vResult = VehicleData.ReDateProcessKernel(model);
+                    if (vResult == null)
+                    {
+
+                        MessageBox.Show(dataGridView1.Rows[i].Cells[1].Value.ToString() + "此项不属于修程修制改革车型，无法判断");
+                        continue;
+                    }
+                    //再赋值给dataGridView后面几个格子
+                    //规定一下格子位置，显示什么内容
+
+                    //可以直接赋值了
+
+                    //TODO：思考输入内容的类型转换问题
+                    dataGridView1.Rows[i].Cells[6].Value = vResult.currentDepotDate.ToShortDateString();
+                    dataGridView1.Rows[i].Cells[7].Value = vResult.vNextDepotDate.ToShortDateString();
+                    dataGridView1.Rows[i].Cells[8].Value = vResult.nextFactoryDate.ToShortDateString();
                 }
-                //再赋值给dataGridView后面几个格子
-                //规定一下格子位置，显示什么内容
-
-                //可以直接赋值了
-
-                //TODO：思考输入内容的类型转换问题
-                dataGridView1.Rows[i].Cells[6].Value = vResult.currentDepotDate.ToShortDateString();
-                dataGridView1.Rows[i].Cells[7].Value = vResult.vNextDepotDate.ToShortDateString();
-                dataGridView1.Rows[i].Cells[8].Value = vResult.nextFactoryDate.ToShortDateString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -175,7 +190,7 @@ namespace RailwayVehicleRapairIntervalCompute
 
         }
 
-      
+
 
         private void button1_Click(object sender, EventArgs e)
         {

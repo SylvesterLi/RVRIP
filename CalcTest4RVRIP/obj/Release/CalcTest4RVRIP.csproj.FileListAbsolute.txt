@@ -1,0 +1,4 @@
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\CalcTest4RVRIP\bin\Release\CalcTest4RVRIP.exe
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\CalcTest4RVRIP\bin\Release\CalcTest4RVRIP.pdb
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\CalcTest4RVRIP\obj\Release\CalcTest4RVRIP.exe
+C:\Users\SANG-HP\Documents\GitHub\RVRIP\CalcTest4RVRIP\obj\Release\CalcTest4RVRIP.pdb

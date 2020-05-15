@@ -32,21 +32,21 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehCate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.produceDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.preFactoryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.preDepotDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SealDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.curFactoryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nextDepotDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nextFactoryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.buttonImportExcel = new System.Windows.Forms.Button();
             this.buttonGetTemplate = new System.Windows.Forms.Button();
             this.buttonOutput = new System.Windows.Forms.Button();
             this.buttonGenerateData = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehCate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.produceDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preFactoryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preDepotDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SealDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.curDepotDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nextDepotDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nextFactoryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -98,7 +98,7 @@
             this.preFactoryDate,
             this.preDepotDate,
             this.SealDuration,
-            this.curFactoryDate,
+            this.curDepotDate,
             this.nextDepotDate,
             this.nextFactoryDate});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -108,69 +108,6 @@
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(966, 413);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Position
-            // 
-            this.Position.HeaderText = "台位";
-            this.Position.MinimumWidth = 6;
-            this.Position.Name = "Position";
-            this.Position.Width = 66;
-            // 
-            // vehCate
-            // 
-            this.vehCate.HeaderText = "车种车型";
-            this.vehCate.MinimumWidth = 6;
-            this.vehCate.Name = "vehCate";
-            this.vehCate.Width = 96;
-            // 
-            // produceDate
-            // 
-            this.produceDate.HeaderText = "制造年月";
-            this.produceDate.MinimumWidth = 6;
-            this.produceDate.Name = "produceDate";
-            this.produceDate.Width = 96;
-            // 
-            // preFactoryDate
-            // 
-            this.preFactoryDate.HeaderText = "前次厂修";
-            this.preFactoryDate.MinimumWidth = 6;
-            this.preFactoryDate.Name = "preFactoryDate";
-            this.preFactoryDate.Width = 96;
-            // 
-            // preDepotDate
-            // 
-            this.preDepotDate.HeaderText = "前次段修";
-            this.preDepotDate.MinimumWidth = 6;
-            this.preDepotDate.Name = "preDepotDate";
-            this.preDepotDate.Width = 96;
-            // 
-            // SealDuration
-            // 
-            this.SealDuration.HeaderText = "封存期";
-            this.SealDuration.MinimumWidth = 6;
-            this.SealDuration.Name = "SealDuration";
-            this.SealDuration.Width = 81;
-            // 
-            // curFactoryDate
-            // 
-            this.curFactoryDate.HeaderText = "本次厂修";
-            this.curFactoryDate.MinimumWidth = 6;
-            this.curFactoryDate.Name = "curFactoryDate";
-            this.curFactoryDate.Width = 96;
-            // 
-            // nextDepotDate
-            // 
-            this.nextDepotDate.HeaderText = "下次段修";
-            this.nextDepotDate.MinimumWidth = 6;
-            this.nextDepotDate.Name = "nextDepotDate";
-            this.nextDepotDate.Width = 96;
-            // 
-            // nextFactoryDate
-            // 
-            this.nextFactoryDate.HeaderText = "下次厂修";
-            this.nextFactoryDate.MinimumWidth = 6;
-            this.nextFactoryDate.Name = "nextFactoryDate";
-            this.nextFactoryDate.Width = 96;
             // 
             // tabControl1
             // 
@@ -231,6 +168,69 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Position
+            // 
+            this.Position.HeaderText = "台位";
+            this.Position.MinimumWidth = 6;
+            this.Position.Name = "Position";
+            this.Position.Width = 66;
+            // 
+            // vehCate
+            // 
+            this.vehCate.HeaderText = "车种车型";
+            this.vehCate.MinimumWidth = 6;
+            this.vehCate.Name = "vehCate";
+            this.vehCate.Width = 96;
+            // 
+            // produceDate
+            // 
+            this.produceDate.HeaderText = "制造年月";
+            this.produceDate.MinimumWidth = 6;
+            this.produceDate.Name = "produceDate";
+            this.produceDate.Width = 96;
+            // 
+            // preFactoryDate
+            // 
+            this.preFactoryDate.HeaderText = "前次厂修";
+            this.preFactoryDate.MinimumWidth = 6;
+            this.preFactoryDate.Name = "preFactoryDate";
+            this.preFactoryDate.Width = 96;
+            // 
+            // preDepotDate
+            // 
+            this.preDepotDate.HeaderText = "前次段修";
+            this.preDepotDate.MinimumWidth = 6;
+            this.preDepotDate.Name = "preDepotDate";
+            this.preDepotDate.Width = 96;
+            // 
+            // SealDuration
+            // 
+            this.SealDuration.HeaderText = "封存期";
+            this.SealDuration.MinimumWidth = 6;
+            this.SealDuration.Name = "SealDuration";
+            this.SealDuration.Width = 81;
+            // 
+            // curDepotDate
+            // 
+            this.curDepotDate.HeaderText = "本次段修";
+            this.curDepotDate.MinimumWidth = 6;
+            this.curDepotDate.Name = "curDepotDate";
+            this.curDepotDate.Width = 96;
+            // 
+            // nextDepotDate
+            // 
+            this.nextDepotDate.HeaderText = "下次段修";
+            this.nextDepotDate.MinimumWidth = 6;
+            this.nextDepotDate.Name = "nextDepotDate";
+            this.nextDepotDate.Width = 96;
+            // 
+            // nextFactoryDate
+            // 
+            this.nextFactoryDate.HeaderText = "下次厂修";
+            this.nextFactoryDate.MinimumWidth = 6;
+            this.nextFactoryDate.Name = "nextFactoryDate";
+            this.nextFactoryDate.Width = 96;
+            // 
             // BatchProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -258,15 +258,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Position;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vehCate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn produceDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn preFactoryDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn preDepotDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SealDuration;
-        private System.Windows.Forms.DataGridViewTextBoxColumn curFactoryDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nextDepotDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nextFactoryDate;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button buttonImportExcel;
         private System.Windows.Forms.Button buttonGetTemplate;
@@ -274,5 +265,14 @@
         private System.Windows.Forms.Button buttonGenerateData;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Position;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehCate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn produceDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preFactoryDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preDepotDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SealDuration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn curDepotDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nextDepotDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nextFactoryDate;
     }
 }
